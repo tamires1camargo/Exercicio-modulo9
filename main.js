@@ -1,38 +1,19 @@
-const form = document.getElementById('form-tarefas');
-const tarefas = [];
+const form = document.getElementById('form-tarefas')
 
-let linhas = '';
-
-form.addEventListener('submit', function(e) {
+form.addEventListener('sumit', function(e) {
     e.preventDefault();
-
+    
     adicionaLinha();
-    atualizaLinha();
-});
+
+})
 
 function adicionaLinha() {
-    const inputNomeTarefa = document.getElementById('nome-atividade');
-    
-    if (tarefas.includes(inputNomeTarefa.value)) {
-        alert();
-    } else {
-        tarefas.push(inputNomeTarefa.value);
-        
-        let linha = '<ul>';
-        linha += `<li>${inputNomeTarefa.value}</li>`;
-        linha += '</li>';
-    
-        linhas += linha;
-    }
+    const inputTarefa = $('#nome-atividade').val();
+    const novaTarefa = $(`<li class="texto-tarefa">${inputTarefa}</li>`);
 
-    inputNomeTarefa.value = '';
+    $(novaTarefa).appendTo('ul');
+    $('#nome-atividade').val('');
+    $(novaTarefa).click(function() {
+        $(novaTarefa).css("text-decoration","line-through");
+    })
 }
-
-function atualizaLinha() {
-    const linhaNova = document.querySelector('ul li');
-    linhaNova.innerHTML = linhas;
-}
-
-$('#item-tarefa').click(function() {
-    $('li').css('text-decoration', 'line-through')
-})
