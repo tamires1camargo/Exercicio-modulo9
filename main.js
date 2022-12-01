@@ -1,6 +1,6 @@
 const form = document.getElementById('form-tarefas')
 
-form.addEventListener('sumit', function(e) {
+form.addEventListener('submit', function(e) {
     e.preventDefault();
     
     adicionaLinha();

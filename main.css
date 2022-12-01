@@ -66,4 +66,5 @@ form button:hover {
 
 #item-tarefa {
     cursor: pointer;
+    display: none;
 }
